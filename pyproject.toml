@@ -1,0 +1,20 @@
+[project]
+name = "json-data-api"
+version = "0.1.0"
+description = "API de prueba construida con FastAPI para consumir datos de JSONPlaceholder."
+authors = [
+    {name = "jemeza06",email = "jesusandresmez@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic (>=2.11.7,<3.0.0)",
+    "uvicorn (>=0.35.0,<0.36.0)",
+    "fastapi (>=0.116.1,<0.117.0)",
+    "httpx (>=0.28.1,<0.29.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
