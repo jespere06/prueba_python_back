@@ -22,3 +22,6 @@ class FetchEngineResponse(BaseModel):
     @field_serializer('timestamp')
     def serialize_timestamp(self, timestamp: datetime):
         return timestamp.strftime('%Y-%m-%d %H:%M:%S')
+    
+        
+    

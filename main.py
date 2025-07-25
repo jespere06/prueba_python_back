@@ -32,3 +32,4 @@ async def fetch_user_posts(id: int):
     posts = [Post(**post) for post in posts_data]
         
     return FetchEngineResponse(body=posts)
+
