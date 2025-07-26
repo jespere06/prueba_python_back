@@ -14,16 +14,25 @@ class FetchEngine:
         try:
             async with httpx.AsyncClient() as client:
                 response = await client.get(url)
+                
+                # [ Verificacion de error ]
+                response.raise_for_status()
+                    
                 return response.json()
-        except httpx.HTTPError as e:
-            logger.error(f'Ha ocurrido un error: {e}')
+
+        except httpx.RequestError as e:
+            logger.error(f'Error de Conexion al intentar consultar {url}')
             raise
+            
     
-    async def user_albums(self, user_id):   
+    async def get_user(self, user_id):   
+        return await self._fetch(f'users/{user_id}')
+    
+    async def get_user_albums(self, user_id):   
         return await self._fetch(f'users/{user_id}/albums')
     
-    async def user_todos(self, user_id):
+    async def get_user_todos(self, user_id):
         return await self._fetch(f'users/{user_id}/todos')
 
-    async def user_posts(self, user_id):
+    async def get_user_posts(self, user_id):
         return await self._fetch(f'users/{user_id}/posts')
