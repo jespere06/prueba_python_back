@@ -1,6 +1,6 @@
 [project]
 name = "json-data-api"
-version = "0.1.0"
+version = "1.0.0"
 description = "API de prueba construida con FastAPI para consumir datos de JSONPlaceholder."
 authors = [
     {name = "jemeza06",email = "jesusandresmez@gmail.com"}
@@ -14,6 +14,9 @@ dependencies = [
     "httpx (>=0.28.1,<0.29.0)",
     "logging (>=0.4.9.6,<0.5.0.0)",
     "pydantic-settings (>=2.10.1,<3.0.0)",
+    "pytest (>=8.4.1,<9.0.0)",
+    "respx (>=0.22.0,<0.23.0)",
+    "pytest-asyncio (>=1.1.0,<2.0.0)",
 ]
 
 

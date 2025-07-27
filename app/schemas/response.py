@@ -1,5 +1,3 @@
-
-# [ Modelos de Respuesta ]
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, field_serializer
 
@@ -7,6 +5,9 @@ from app.schemas.album import Album
 from app.schemas.post import Post
 from app.schemas.todos import Todos
 from app.schemas.user import User
+
+class ErrorDetail(BaseModel):
+    detail: str
 
 class Root(BaseModel):
     message: str

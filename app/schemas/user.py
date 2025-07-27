@@ -1,7 +1,4 @@
-
-# [ Modelos de User ]
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
-
 
 class Geo(BaseModel):
     lat: str
