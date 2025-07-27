@@ -8,7 +8,19 @@ class Post(BaseModel):
     title: str
     body: str
     model_config = ConfigDict(populate_by_name=True)
-# TODO: seguir con Albums y Todos
+
+class Album(BaseModel):
+    user_id: int = Field(alias='userId')
+    album_id: int = Field(alias='id')
+    title: str
+    model_config = ConfigDict(populate_by_name=True)
+    
+class Todos(BaseModel):
+    user_id: int = Field(alias='userId')
+    todos_id: int = Field(alias='id')
+    title: str
+    completed: bool
+    model_config = ConfigDict(populate_by_name=True)
 
 
 # [ Modelos de User ]
@@ -34,15 +46,8 @@ class User(BaseModel):
     email: EmailStr
     address: Address
     phone: str
-    website: str # añadir un Field y un FieldValidator para añadir el https://
+    website: str
     company: Company
-    model_config = ConfigDict(populate_by_name=True)
-    
-class UserAllData(BaseModel):
-    user_id: int
-    albums: list[dict] # TODO: Remplazar dict por Modelos Generales
-    todos: list[dict]
-    posts: list[Post]
     model_config = ConfigDict(populate_by_name=True)
     
 # [ Modelos de Respuesta ]
@@ -54,11 +59,16 @@ class BaseResponse(BaseModel):
         return timestamp.strftime('%Y-%m-%d %H:%M:%S')
     
 class UserResponse(BaseResponse):
-    body: User
+    body: User = Field(default=...)
         
 class PostsResponse(BaseResponse):
-    body: list[Post]
+    body: list[Post] = Field(default=...)
+    
+class AlbumsResponse(BaseResponse):
+    body: list[Album] = Field(default=...)
 
-class UserAllDataResponse(BaseResponse):
-    body: UserAllData
+class TodosResponse(BaseResponse):
+    body: list[Todos] = Field(default=...)
+
+
     

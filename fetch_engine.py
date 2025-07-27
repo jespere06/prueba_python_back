@@ -1,9 +1,8 @@
 import httpx
-import logging
 
 BASE_URL = 'https://jsonplaceholder.typicode.com'
 
-logger = logging.getLogger(__name__)
+DEFAULT_TIMEOUT = httpx.Timeout(10, connect=5)
 
 class FetchEngine:   
     
@@ -12,7 +11,7 @@ class FetchEngine:
         url = f'{BASE_URL}/{endpoint}'
         
         try:
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(timeout=DEFAULT_TIMEOUT) as client:
                 response = await client.get(url)
                 
                 # [ Verificacion de error ]
@@ -20,19 +19,21 @@ class FetchEngine:
                     
                 return response.json()
 
-        except httpx.RequestError as e:
-            logger.error(f'Error de Conexion al intentar consultar {url}')
+        except (httpx.RequestError, httpx.HTTPStatusError) as e:
             raise
             
     
     async def get_user(self, user_id):   
         return await self._fetch(f'users/{user_id}')
     
-    async def get_user_albums(self, user_id):   
+    async def get_user_albums(self, user_id):
+        await self.get_user(user_id)
         return await self._fetch(f'users/{user_id}/albums')
     
     async def get_user_todos(self, user_id):
+        await self.get_user(user_id)
         return await self._fetch(f'users/{user_id}/todos')
 
     async def get_user_posts(self, user_id):
+        await self.get_user(user_id)
         return await self._fetch(f'users/{user_id}/posts')
