@@ -1,6 +1,5 @@
 import logging
 import sys
-import loguru
 
 LOG_FORMAT = '%(levelname)s:  (%(name)s) %(message)s'
 
@@ -21,7 +20,6 @@ class ColoredFormatter(logging.Formatter):
         return super().format(record)
 
 def setup_logger():
-    
     
     handler =logging.StreamHandler(sys.stdout)
     formatter = ColoredFormatter(LOG_FORMAT)
