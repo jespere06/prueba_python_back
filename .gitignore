@@ -1,0 +1,30 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Cachés de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Cachés de herramientas de testing y tipado
+.pytest_cache/
+.mypy_cache/
+.coverage
+
+# Archivos de configuración de IDEs
+.vscode/
+.idea/
+
+# Archivos de configuración local y secretos
+.env
+.env.*
+
+# Documentación generada por MkDocs
+site/
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db

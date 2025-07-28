@@ -1,5 +1,5 @@
 [project]
-name = "json-data-api"
+name = "jsonplaceholder-proxy-api"
 version = "1.0.0"
 description = "API de prueba construida con FastAPI para consumir datos de JSONPlaceholder."
 authors = [
@@ -23,3 +23,8 @@ dependencies = [
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+mkdocs = "^1.6.1"
+mkdocs-material = "^9.6.16"
+

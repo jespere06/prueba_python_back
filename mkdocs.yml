@@ -1,0 +1,44 @@
+site_name: API Proxy for JSONPlaceholder
+site_author: jemeza06
+
+theme:
+  name: material
+  palette:
+    
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+    
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.top
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+nav:
+  - 'Inicio': 'index.md'
+  - 'Instalación y Ejecución': 'installation.md'
+  - 'Guías de Uso':
+    - 'Referencia de la API': 'usage/api-reference.md'
+    - 'Guía de Postman': 'usage/postman-guide.md'
+  - 'Dockerización': 'docker.md'
+  - 'Pruebas': 'testing.md'
+  - 'Arquitectura':
+    - 'Estructura del Proyecto': 'architecture/project-structure.md'
+    - 'Decisiones de Diseño': 'architecture/design-decisions.md'

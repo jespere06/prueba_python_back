@@ -1,0 +1,35 @@
+# No incluir el propio Dockerfile dentro de la imagen
+Dockerfile
+*.dockerfile
+
+# No incluir archivos de Docker Compose
+docker-compose.yml
+
+# No incluir el historial de Git ni sus archivos de configuración
+.git
+.gitignore
+
+# No incluir la configuración del IDE
+.vscode/
+.idea/
+
+# No incluir el entorno virtual local
+.venv/
+venv/
+env/
+
+# No incluir cachés de herramientas
+.pytest_cache/
+.mypy_cache/
+
+# No incluir la documentación
+docs/
+mkdocs.yml
+site/
+
+# No incluir las pruebas en la imagen final de producción (SI SE QUIERE USAR SIMPLEMENTE DESPLEGARLO NUEVAMENTE SIN ESTO)
+tests/
+
+# No incluir archivos de configuración locales directamente
+.env
+.env.*
